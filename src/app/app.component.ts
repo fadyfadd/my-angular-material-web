@@ -9,7 +9,7 @@ import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 export class AppComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
 
-  private _mobileQueryListener: () => void;
+  //private _mobileQueryListener: () => void;
   fillerNav = [
     {"title":"Home" , "link":"/home"},
     {"title":"Processes" , "link":"/process-list"},
@@ -18,12 +18,12 @@ export class AppComponent implements OnDestroy {
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+    //this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    //this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    //this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
 }
