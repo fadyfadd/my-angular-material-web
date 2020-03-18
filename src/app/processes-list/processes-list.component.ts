@@ -29,7 +29,7 @@ export class ProcessesListComponent implements OnInit {
 
   }
   processes: IProcess[] = null;
-  displayedColumns: string[] = ['id', 'machineName', 'basePriority', 'mainWindowTitle'];
+  displayedColumns: string[] = ['id', 'machineName', 'basePriority', 'mainWindowTitle' , 'action'];
   processesDs = new MatTableDataSource<IProcess>(this.processes);
  
   ngOnInit() {

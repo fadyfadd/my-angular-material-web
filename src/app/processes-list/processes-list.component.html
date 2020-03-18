@@ -26,6 +26,10 @@
     <th mat-header-cell mat-sort-header *matHeaderCellDef> Main Window Title </th>
     <td mat-cell style="text-align:center" *matCellDef="let element"> {{element.mainWindowTitle}} </td>
   </ng-container>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> Action </th>
+    <td mat-cell style="text-align:center" *matCellDef="let element"> <button type="button" mat-button color="primary">Edit</button><button type="button" mat-button color="warn">Delete</button> </td>
+  </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
