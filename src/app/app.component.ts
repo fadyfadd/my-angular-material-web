@@ -10,10 +10,11 @@ export class AppComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
-  fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
-
-
-
+  fillerNav = [
+    {"title":"Home" , "link":"/home"},
+    {"title":"Processes" , "link":"/process-list"},
+    {"title":"Employee Validation" , "link":"/employee-validation"}
+  ]
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');

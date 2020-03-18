@@ -6,11 +6,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './app-angular-material'
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { SpinnerComponent  } from './spinner/spinner.component';
+import { ProcessesListComponent } from './processes-list/processes-list.component'
+
  
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    SpinnerComponent , 
+    ProcessesListComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -19,7 +26,7 @@ import { HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     AngularMaterialModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

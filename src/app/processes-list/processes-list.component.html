@@ -1,0 +1,35 @@
+<p>Processes</p>
+<hr />
+
+
+<mat-form-field style="width:100%">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+</mat-form-field>
+
+<table matSort class="mat-elevation-z8" style="width:100%" mat-table [dataSource]="processesDs">
+
+
+  <ng-container matColumnDef="id">
+    <th mat-sort-header class="text-center" mat-header-cell *matHeaderCellDef> Id </th>
+    <td style="text-align:center" mat-cell *matCellDef="let element"> {{element["id"]}} </td>
+  </ng-container>
+  <ng-container matColumnDef="machineName">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef> Machine Name </th>
+    <td mat-cell style="text-align:center" *matCellDef="let element"> {{element.machineName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="basePriority">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef> Base Priority </th>
+    <td style="text-align:center" mat-cell *matCellDef="let element"> {{element.basePriority}} </td>
+  </ng-container>
+  <ng-container matColumnDef="mainWindowTitle">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> Main Window Title </th>
+    <td mat-cell style="text-align:center" *matCellDef="let element"> {{element.mainWindowTitle}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
