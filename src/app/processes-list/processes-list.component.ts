@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { ViewEncapsulation } from '@angular/core';
 import { SpinnerController } from '../spinner/spinner-controler';
+import { AppSettings } from '../app-settings'
 
 
 
@@ -21,7 +22,10 @@ export class ProcessesListComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private http:HttpClient , private spinnerController: SpinnerController) { }
+  constructor(private http:HttpClient , private spinnerController: SpinnerController , private appSettings: AppSettings) {
+      
+
+   }
 
   applyFilter(e) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -34,11 +38,11 @@ export class ProcessesListComponent implements OnInit {
  
   ngOnInit() {
     this.spinnerController.start();
-    this.http.get<IProcess[]>("http://localhost:5000/dataprovider/processes-list").pipe(tap(_ => { }),
+    this.http.get<IProcess[]>(this.appSettings.parameters.baseRef +  "dataprovider/processes-list").pipe(tap(_ => { }),
       catchError((e, a) => {this.spinnerController.stop(); return [[]] })
     ).subscribe(a => {
       this.spinnerController.stop();      
-      this.processes = a; console.log(this.processes);
+      this.processes = a;  
       this.processesDs = new MatTableDataSource<IProcess>(this.processes);
       this.processesDs.paginator = this.paginator;
       this.processesDs.sort = this.sort;
