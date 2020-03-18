@@ -1,0 +1,44 @@
+Employee Validation
+<hr />
+<form [formGroup]="employeeForm" #myForm (submit)="onSubmit();">
+
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <mat-form-field style="width:100%">
+        <mat-label>Date of Birth</mat-label>
+        <input id="dob" formControlName="dateOfBirth" [formControl]="dateOfBirth" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="year"></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <mat-form-field style="width:100%">
+        <mat-label>Citizenship</mat-label>
+        <mat-select formControlName="citizenship" [(value)]="citizenship">
+          <mat-option>None</mat-option>
+          <mat-option value="1">Lebanon</mat-option>
+          <mat-option value="2">France</mat-option>
+          <mat-option value="3">Germany</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+
+  <ul>
+    <li style="color:red" *ngIf="dateOfBirth.touched && dateOfBirth.errors && dateOfBirth.errors['dateOfBirthValidator']">
+      {{dateOfBirth.errors['dateOfBirthValidator']}}
+    </li>
+    <li style="color:red" *ngIf="citizenshipF.touched && citizenshipF.errors && citizenshipF.errors['citizenshipValidator']">
+      {{citizenshipF.errors['citizenshipValidator']}}
+    </li>
+  </ul>
+
+  <button type="button" (click)="reset(myForm);" mat-button color="primary">Reset</button><button [disabled]="!employeeForm.valid" type="submit" mat-button color="primary">Submit</button>
+
+</form>
+

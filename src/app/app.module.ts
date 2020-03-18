@@ -9,6 +9,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { SpinnerComponent  } from './spinner/spinner.component';
 import { ProcessesListComponent } from './processes-list/processes-list.component'
+import { EmployeeValidation} from './employee-validation/employee-validation.component';
 
  
 
@@ -17,7 +18,8 @@ import { ProcessesListComponent } from './processes-list/processes-list.componen
     AppComponent,
     HomeComponent,
     SpinnerComponent , 
-    ProcessesListComponent
+    ProcessesListComponent,
+    EmployeeValidation
   ],
   imports: [
     ReactiveFormsModule,
