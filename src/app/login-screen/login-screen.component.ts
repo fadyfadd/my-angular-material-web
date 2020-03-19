@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input , ViewChild, ElementRef , EventEmitter, Output } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 
@@ -13,12 +13,35 @@ export class LoginScreenComponent implements OnInit {
 
   }
 
+  @Output()
+  loginAttempt:EventEmitter<boolean> = new EventEmitter<boolean>();
+ 
+
   msgbox(message , action) {
     this._snackBar.open(message , action);
   }
 
-  onClick() {
-    this.msgbox("Username/Password combination not valid" , "Close");
+  displayMode = "block";
+
+  @Input()
+  set isVisible(isVisible:Boolean) { 
+      if (isVisible == true)
+        this.displayMode = "block";
+      else
+        this.displayMode = "none";
+  }
+
+  onClick(userName , password) {
+    
+    if (userName.value == "admin" && password.value == "admin123") 
+      this.loginAttempt.emit(true);
+    else {
+      this.msgbox("Username/Password combination not valid" , "Close");
+      this.loginAttempt.emit(false);
+
+
+    }
+    
   }
 
   ngOnInit(): void {

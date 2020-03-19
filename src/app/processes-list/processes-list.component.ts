@@ -39,7 +39,7 @@ export class ProcessesListComponent implements OnInit {
   ngOnInit() {
     this.spinnerController.start();
     this.http.get<IProcess[]>(this.appSettings.parameters.baseRef +  "dataprovider/processes-list").pipe(tap(_ => { }),
-      catchError((e, a) => {this.spinnerController.stop(); return [[]] })
+      catchError((e, a) => { return [[]] })
     ).subscribe(a => {
       this.spinnerController.stop();      
       this.processes = a;  

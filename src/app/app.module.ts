@@ -11,6 +11,7 @@ import { SpinnerComponent  } from './spinner/spinner.component';
 import { ProcessesListComponent } from './processes-list/processes-list.component'
 import { EmployeeValidation} from './employee-validation/employee-validation.component';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 
  
 
@@ -21,7 +22,7 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
     SpinnerComponent , 
     ProcessesListComponent,
     EmployeeValidation,    
-    LoginScreenComponent
+    LoginScreenComponent, MainLayoutComponent
   ],
   imports: [
     ReactiveFormsModule,
