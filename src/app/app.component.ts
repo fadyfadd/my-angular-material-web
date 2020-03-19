@@ -21,6 +21,11 @@ export class AppComponent implements OnDestroy {
   mainLayoutVisible:boolean = false;;
   loginScreenVisible:boolean = true;
 
+  onShowLogin() {
+      this.mainLayoutVisible = false; 
+      this.loginScreenVisible = true; 
+  }
+
   onLoginAttempt(e) {
       if (e == true) {
         //this.mainLayoutVisible == true;

@@ -1,4 +1,4 @@
-import { Component, OnInit , Input , ViewChild, ElementRef , EventEmitter, Output } from '@angular/core';
+import { Component, OnInit , Input , ViewChild, ElementRef , EventEmitter, Output  } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 
@@ -12,6 +12,12 @@ export class LoginScreenComponent implements OnInit {
   constructor(private _snackBar: MatSnackBar) { 
 
   }
+
+  @ViewChild("userName" , {static:true})
+    userName:ElementRef;
+
+  @ViewChild("password" , {static:true})
+    password:ElementRef;
 
   @Output()
   loginAttempt:EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -34,7 +40,10 @@ export class LoginScreenComponent implements OnInit {
   onClick(userName , password) {
     
     if (userName.value == "admin" && password.value == "admin123") 
-      this.loginAttempt.emit(true);
+     {  this.loginAttempt.emit(true);
+        this.userName.nativeElement.value = "";
+        this.password.nativeElement.value = "";
+     }
     else {
       this.msgbox("Username/Password combination not valid" , "Close");
       this.loginAttempt.emit(false);

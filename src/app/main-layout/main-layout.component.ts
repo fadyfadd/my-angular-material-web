@@ -1,6 +1,6 @@
  
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnDestroy , Input } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy , Input , Output , EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-main-layout',
@@ -11,7 +11,8 @@ export class MainLayoutComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
 
   //private _mobileQueryListener: () => void;
-
+  @Output()
+  showLogin: EventEmitter<boolean> = new EventEmitter();
   displayMode = "none";
 
   @Input()
@@ -26,6 +27,10 @@ export class MainLayoutComponent implements OnDestroy {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     //this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     //this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+
+  showLoginScreen() {
+      this.showLogin.emit(true);
   }
 
   ngOnDestroy(): void {
