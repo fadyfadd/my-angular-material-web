@@ -10,7 +10,6 @@ import { HomeComponent } from './home/home.component';
 import { SpinnerComponent  } from './spinner/spinner.component';
 import { ProcessesListComponent } from './processes-list/processes-list.component'
 import { EmployeeValidation} from './employee-validation/employee-validation.component';
-import { MsgboxComponent } from './msgbox/msgbox.component';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 
  
@@ -21,8 +20,7 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
     HomeComponent,
     SpinnerComponent , 
     ProcessesListComponent,
-    EmployeeValidation,
-    MsgboxComponent,
+    EmployeeValidation,    
     LoginScreenComponent
   ],
   imports: [
