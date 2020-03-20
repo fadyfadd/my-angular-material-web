@@ -1,6 +1,7 @@
  
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy , Input , Output , EventEmitter } from '@angular/core';
+import { Router} from '@angular/router'
 
 @Component({
   selector: 'app-main-layout',
@@ -23,7 +24,7 @@ export class MainLayoutComponent implements OnDestroy {
         this.displayMode = "none";
   }
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher , router:Router) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     //this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     //this.mobileQuery.addListener(this._mobileQueryListener);

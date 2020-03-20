@@ -14,6 +14,7 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { NewEditProcessComponent } from './new-edit-process/new-edit-process.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { NoactionComponent } from './no-action/no-action.component';
 
  
 
@@ -24,7 +25,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     SpinnerComponent , 
     ProcessesListComponent,
     EmployeeValidation,    
-    LoginScreenComponent, MainLayoutComponent, NewEditProcessComponent, ConfirmDialogComponent
+    LoginScreenComponent, MainLayoutComponent, NewEditProcessComponent, ConfirmDialogComponent, NoactionComponent
   ],
   imports: [
     ReactiveFormsModule,

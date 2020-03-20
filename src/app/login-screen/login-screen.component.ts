@@ -1,5 +1,6 @@
 import { Component, OnInit , Input , ViewChild, ElementRef , EventEmitter, Output  } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router} from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class LoginScreenComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar) { 
+  constructor(private _snackBar: MatSnackBar , private router : Router) { 
 
   }
 
@@ -43,6 +44,7 @@ export class LoginScreenComponent implements OnInit {
      {  this.loginAttempt.emit(true);
         this.userName.nativeElement.value = "";
         this.password.nativeElement.value = "";
+        this.router.navigateByUrl("/home");
      }
     else {
       this.msgbox("Username/Password combination not valid" , "Close");
