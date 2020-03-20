@@ -8,6 +8,9 @@ import { MatSort } from '@angular/material/sort';
 import { ViewEncapsulation } from '@angular/core';
 import { SpinnerController } from '../spinner/spinner-controler';
 import { AppSettings } from '../app-settings'
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { NewEditProcessComponent , DialogData } from '../new-edit-process/new-edit-process.component'
+
 
 
 
@@ -22,8 +25,19 @@ export class ProcessesListComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private http:HttpClient , private spinnerController: SpinnerController , private appSettings: AppSettings) {
+  constructor(private http:HttpClient , private spinnerController: SpinnerController
+  , private appSettings: AppSettings , public dialog: MatDialog) {
       
+
+   }
+
+   editProcess(id) {
+     let dialogRef = this.dialog.open(NewEditProcessComponent , {width: '500px'  , data:{name:"a" , "animal":"b"}})
+
+     dialogRef.afterClosed().subscribe(result => { alert(result);
+      console.log('The dialog was closed');
+      
+    });
 
    }
 
