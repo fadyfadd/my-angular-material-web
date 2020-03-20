@@ -13,6 +13,7 @@ import { EmployeeValidation} from './employee-validation/employee-validation.com
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { NewEditProcessComponent } from './new-edit-process/new-edit-process.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
  
 
@@ -23,7 +24,7 @@ import { NewEditProcessComponent } from './new-edit-process/new-edit-process.com
     SpinnerComponent , 
     ProcessesListComponent,
     EmployeeValidation,    
-    LoginScreenComponent, MainLayoutComponent, NewEditProcessComponent
+    LoginScreenComponent, MainLayoutComponent, NewEditProcessComponent, ConfirmDialogComponent
   ],
   imports: [
     ReactiveFormsModule,
