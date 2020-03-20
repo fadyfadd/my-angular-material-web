@@ -59,6 +59,8 @@ export class NewEditProcessComponent {
       headers: headers,
       params: params
     };
+
+    this.spinnerController.start();
     this.http.get<IProcess>(this.appSettings.parameters.baseRef + "dataprovider/processes-by-id", httpOptions).pipe(tap(_ => { }),
       catchError((e, a) => { return [null] })
     ).subscribe(a => {

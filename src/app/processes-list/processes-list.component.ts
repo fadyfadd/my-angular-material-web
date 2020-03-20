@@ -54,6 +54,14 @@ export class ProcessesListComponent implements OnInit {
   processesDs = new MatTableDataSource<IProcess>(this.processes);
   
 
+  newProcess() {
+    let dialogRef = this.dialog.open(NewEditProcessComponent , {width: '500px'  , data:{id:"" , mode:'new' }})
+
+    dialogRef.afterClosed().subscribe(result => {  
+      
+   });
+  }
+
   ngOnInit() { 
 
      let params:HttpParams = new HttpParams(); 
