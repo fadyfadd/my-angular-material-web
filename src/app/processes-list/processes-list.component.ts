@@ -38,8 +38,7 @@ export class ProcessesListComponent implements OnInit {
      let dialogRef = this.dialog.open(NewEditProcessComponent , {width: '500px'  , data:{id:id , mode:'edit' }})
 
      dialogRef.afterClosed().subscribe(result => {  
-      
-      
+       
     });
 
    }
@@ -53,7 +52,8 @@ export class ProcessesListComponent implements OnInit {
   processes: IProcess[] = null;
   displayedColumns: string[] = ['id', 'machineName', 'basePriority', 'mainWindowTitle' , 'action'];
   processesDs = new MatTableDataSource<IProcess>(this.processes);
- 
+  
+
   ngOnInit() { 
 
      let params:HttpParams = new HttpParams(); 

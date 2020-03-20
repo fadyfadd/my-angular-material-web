@@ -17,7 +17,7 @@ export class EmployeeValidation {
   }
 
   ngOnInit() {
-   
+  
   }
 
   ngAfterViewInit(): void {

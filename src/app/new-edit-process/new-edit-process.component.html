@@ -1,11 +1,12 @@
 <h1 *ngIf="data.mode == 'edit'" mat-dialog-title>Edit Process</h1>
+<h1 *ngIf="data.mode == 'new'" mat-dialog-title>Add Process</h1>
 <div mat-dialog-content>
   
   <div class="row">
     <div class="col-12">
       <mat-form-field style="width:100%">
         <mat-label>Id</mat-label>
-        <input matInput>
+        <input disabled [(ngModel)]="id" matInput>
       </mat-form-field>
     </div>
   </div>
@@ -14,7 +15,7 @@
     <div class="col-12">
       <mat-form-field style="width:100%">
         <mat-label>Machine Name</mat-label>
-        <input matInput>
+        <input [(ngModel)]="machineName" matInput>
       </mat-form-field>
     </div>
   </div>
@@ -23,7 +24,7 @@
     <div class="col-12">
       <mat-form-field style="width:100%">
         <mat-label>Base Priority</mat-label>
-        <input matInput>
+        <input type="number" [(ngModel)]="basePriority" matInput>
       </mat-form-field>
     </div>
   </div>
@@ -32,14 +33,13 @@
     <div class="col-12">
       <mat-form-field style="width:100%">
         <mat-label>Main Window Title</mat-label>
-        <input matInput>
+        <input [(ngModel)]="mainWindowTitle" matInput>
       </mat-form-field>
     </div>
   </div>
-  
-
+ 
 </div>
 <div mat-dialog-actions>
   <button mat-button color="secondary" (click)="onCancel()">Cancel</button>
-  <button mat-button color="primary" (click)="onSave();" [mat-dialog-close]="data.id" cdkFocusInitial>Ok</button>
+  <button mat-button color="primary" (click)="onSave();" [mat-dialog-close]="id" cdkFocusInitial>Ok</button>
 </div>
