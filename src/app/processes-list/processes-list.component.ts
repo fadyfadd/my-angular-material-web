@@ -10,6 +10,9 @@ import { SpinnerController } from '../spinner/spinner-controler';
 import { AppSettings } from '../app-settings'
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { NewEditProcessComponent , DialogData } from '../new-edit-process/new-edit-process.component'
+import { HttpHeaders } from '@angular/common/http';
+import {HttpParams} from "@angular/common/http";
+
 
 
 
@@ -32,10 +35,10 @@ export class ProcessesListComponent implements OnInit {
    }
 
    editProcess(id) {
-     let dialogRef = this.dialog.open(NewEditProcessComponent , {width: '500px'  , data:{name:"a" , "animal":"b"}})
+     let dialogRef = this.dialog.open(NewEditProcessComponent , {width: '500px'  , data:{id:id , mode:'edit' }})
 
-     dialogRef.afterClosed().subscribe(result => { alert(result);
-      console.log('The dialog was closed');
+     dialogRef.afterClosed().subscribe(result => {  
+      
       
     });
 
@@ -46,13 +49,23 @@ export class ProcessesListComponent implements OnInit {
     this.processesDs.filter = filterValue.trim();
 
   }
+  
   processes: IProcess[] = null;
   displayedColumns: string[] = ['id', 'machineName', 'basePriority', 'mainWindowTitle' , 'action'];
   processesDs = new MatTableDataSource<IProcess>(this.processes);
  
-  ngOnInit() {
+  ngOnInit() { 
+
+     let params:HttpParams = new HttpParams(); 
+     let headers:HttpHeaders = new HttpHeaders(); 
+    
+     const httpOptions = {
+      headers : headers,
+      params : params
+    };
+
     this.spinnerController.start();
-    this.http.get<IProcess[]>(this.appSettings.parameters.baseRef +  "dataprovider/processes-list").pipe(tap(_ => { }),
+    this.http.get<IProcess[]>(this.appSettings.parameters.baseRef +  "dataprovider/processes-list" , httpOptions ).pipe(tap(_ => { }),
       catchError((e, a) => { return [[]] })
     ).subscribe(a => {
       this.spinnerController.stop();      

@@ -2,8 +2,8 @@ import {Component, Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 export interface DialogData {
-  animal: string;
-  name: string;
+  id: string;
+  mode: string;
 }
 
 @Component({
@@ -17,12 +17,18 @@ export class NewEditProcessComponent  {
     public dialogRef: MatDialogRef<NewEditProcessComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
+    onCancel() {
+      this.dialogRef.close();
+    }
+
+    onSave() {
+      this.dialogRef.close();
+    }
+
     ngOnInit() {
      
     }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+ 
 
 }
