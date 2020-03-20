@@ -13,7 +13,7 @@ import { NewEditProcessComponent, DialogData } from '../new-edit-process/new-edi
 import { HttpHeaders } from '@angular/common/http';
 import { HttpParams } from "@angular/common/http";
 import { ConfirmDialogModel, ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -33,7 +33,7 @@ export class ProcessesListComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(private http: HttpClient, private spinnerController: SpinnerController
-    , private appSettings: AppSettings, public dialog: MatDialog , private _snackBar: MatSnackBar) {
+    , private appSettings: AppSettings, public dialog: MatDialog, private _snackBar: MatSnackBar) {
 
 
   }
@@ -56,9 +56,9 @@ export class ProcessesListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(dialogResult => {
-        if (dialogResult) {
-          this._snackBar.open("Successfully deleted" , "Close");
-        }
+      if (dialogResult) {
+        this._snackBar.open("Successfully deleted", "Close");
+      }
     });
   }
 

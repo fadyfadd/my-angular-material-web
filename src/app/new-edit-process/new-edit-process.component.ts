@@ -32,7 +32,7 @@ export class NewEditProcessComponent {
     @Inject(MAT_DIALOG_DATA) public data: DialogData , public msgbox:MatSnackBar) { }
 
   onCancel() {
-    this.dialogRef.close();
+    this.dialogRef.close(false);
   }
 
   id:any;
@@ -42,7 +42,7 @@ export class NewEditProcessComponent {
 
   onSave() {
     //alert(this.basePriority);
-   // this.dialogRef.close();
+    this.dialogRef.close(true);
    //this.msgbox.open("cannot save" , "close");
   }
 
@@ -66,7 +66,7 @@ export class NewEditProcessComponent {
     ).subscribe(a => {
       this.spinnerController.stop();
       
-      if (a != null)
+      if (a == true)
       {
           this.id = a.id;
           this.machineName = a.machineName;
