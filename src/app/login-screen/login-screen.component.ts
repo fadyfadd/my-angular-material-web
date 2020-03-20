@@ -41,10 +41,11 @@ export class LoginScreenComponent implements OnInit {
   onClick(userName , password) {
     
     if (userName.value == "admin" && password.value == "admin123") 
-     {  this.loginAttempt.emit(true);
+     {  
         this.userName.nativeElement.value = "";
         this.password.nativeElement.value = "";
         this.router.navigateByUrl("/home");
+        this.loginAttempt.emit(true);
      }
     else {
       this.msgbox("Username/Password combination not valid" , "Close");

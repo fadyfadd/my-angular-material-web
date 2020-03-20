@@ -2,6 +2,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy , Input , Output , EventEmitter } from '@angular/core';
 import { Router} from '@angular/router'
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-main-layout',
@@ -22,6 +23,8 @@ export class MainLayoutComponent implements OnDestroy {
         this.displayMode = "block";
       else
         this.displayMode = "none";
+        
+
   }
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher , router:Router) {
