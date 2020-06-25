@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "my-angular-material-web"
+  "defaultProject": "my-angular-material-web",
+  "cli": {
+    "analytics": "298a90ed-3210-43aa-a5e7-6f9138b11bba"
+  }
 }
