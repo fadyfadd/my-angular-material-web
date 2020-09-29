@@ -92,7 +92,7 @@ export class ProcessesListComponent implements OnInit {
     };
 
     this.spinnerController.start();
-    this.http.get<IProcess[]>(this.appSettings.parameters.baseRef + "dataprovider/processes-list", httpOptions).pipe(tap(_ => { }),
+    this.http.get<IProcess[]>(this.appSettings.parameters.baseRef + "dataprovider/process-list", httpOptions).pipe(tap(_ => { }),
       catchError((e, a) => { return [[]] })
     ).subscribe(a => {
       this.spinnerController.stop();
